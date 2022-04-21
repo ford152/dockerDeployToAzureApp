@@ -1,4 +1,5 @@
 # Dockerizing a node.js app and deploying an Azure App Service using the docker container
+In this project I provide details for how to dockerize a simple node.js app, deploy the container to Azure, and then create an App Service that runs the docker image.  I used a mix of the Azure portal and the Azure CLI.
 
 ## Dockerizing
 Create a Dockerfile and then build the docker container, giving it a name.  Details on the Dockerfile file in this article: https://nodejs.org/en/docs/guides/nodejs-docker-webapp/#create-the-node-js-app
@@ -54,7 +55,7 @@ Using the portal, create an app service:
 * On the Docker step, choose Azure Container Registry for the Image Source
 * Choose the image called "expressapp1" and the tag "v1"
 
-<br><br>
+<br>
 
 ## Configure the Port for Azure to Access the Docker Container
 By default, App Service assumes your custom container is listening on either port 80 or port 8080. If your container listens to a different port, set the WEBSITES_PORT app setting in your App Service app.  In the portal go to configuration, Application settings and add the new setting.  In this case the code in ./bin/www defaults to port 3000 (the PORT environment variable will not be passed to the docker image by default).  So I have set WEBSITES_PORT=3000.  Under the covers this causes Azure to launch docker using a command like so: docker run -d -p 3000:3000 .....
