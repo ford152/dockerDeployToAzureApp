@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8dce9725-0d9c-4b1b-9faa-afa349e52455/resourceGroups/appsvc_linux_centralus2/providers/Microsoft.Web/sites/bb-testexpressapp",
+    "appService.deploySubpath": "."
+}
